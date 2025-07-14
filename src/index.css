@@ -1,1 +1,128 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;600&family=Orbitron:wght@600&family=Space+Grotesk:wght@400;600&display=swap");
+
+@font-face {
+  font-family: "Modern Negra";
+  src: url(" /fonts/Modern Negra Demo.ttf") format("truetype");
+}
+
+body {
+  font-family: var(--font-body);
+  width: 100dvw;
+  overflow-x: hidden;
+  color: #111;
+  background-color: #f9f9f9;
+
+  background:
+    radial-gradient(circle at 30% 20%, rgba(0, 140, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(255, 200, 0, 0.05), transparent 50%),
+    linear-gradient(180deg, #ffffff 0%, #f5f7fa 50%, #ffffff 100%);
+}
+
+@layer base {
+  :root {
+    /* Font Families */
+    --font-heading: 'Bebas Neue', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-alt: 'Orbitron', sans-serif;
+    --font-display: 'Anton', sans-serif;
+
+    /* Backgrounds */
+    --color-bg-base: #ffffff; /* overall page background */
+    --color-bg-layer: #f5f7fa; /* section background */
+    --color-surface: #f0f2f5; /* cards, panels */
+    --color-panel: #e5e7eb; /* elevated sections */
+
+    /* Text Colors */
+    --color-text-primary: #111111;
+    --color-text-secondary: #4b5563;
+    --color-text-muted: #6b7280;
+    --color-text-inverted: #ffffff;
+
+    /* Grays */
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-300: #d1d5db;
+    --color-gray-500: #9ca3af;
+    --color-gray-700: #374151;
+
+    /* Primary Accent (Blue) */
+    --color-primary-50: #eff6ff;
+    --color-primary-100: #dbeafe;
+    --color-primary-300: #60a5fa;
+    --color-primary-500: #3b82f6;
+    --color-primary-700: #1d4ed8;
+
+    /* Secondary Accent (Violet) */
+    --color-secondary-100: #ede9fe;
+    --color-secondary-300: #c4b5fd;
+    --color-secondary-500: #8b5cf6;
+
+    /* Supporting Accents */
+    --color-accent-green: #10b981;
+    --color-accent-yellow: #facc15;
+    --color-accent-pink: #ec4899;
+
+    /* Status Colors */
+    --color-success: #22c55e;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+
+    /* Glows / Shadows */
+    --color-glow-soft: rgba(0, 0, 0, 0.03);
+    --color-glow-blue: rgba(59, 130, 246, 0.15);
+    --color-glow-violet: rgba(139, 92, 246, 0.15);
+    --color-glow-neutral: rgba(0, 0, 0, 0.06);
+  }
+}
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+
+@layer base{
+  .nav-hover-btn {
+    position: relative;
+    margin-inline-start: 2.5rem;
+    font-family: var(--font-general);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #e0f2fe;
+    cursor: pointer;
+  }
+ .font-negra {
+    font-family: "Modern Negra", sans-serif;
+  }
+  .text-gradient {
+  background: linear-gradient(to right, #d1d5db, #9ca3af, #6b7280); /* light to deep gray */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+  .nav-hover-btn::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: var(--color-blue-100);
+    transition: width 0.4s ease;
+    bottom: 0;
+    left: 0;
+  }
+
+  .nav-hover-btn:hover::after {
+    width: 100%;
+  }
+
+  .nav-hover-btn:hover {
+    color: var(--color-blue-100);
+  }
+
+  /* Floating Nav */
+  .floating-nav {
+    background-color: black;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(229, 231, 235, 0.2);
+  }
+}
