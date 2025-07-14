@@ -4,9 +4,9 @@ function App() {
 
   return (
     <>
- <div className="bg-black text-red-200" >
-hello how are you guys
- </div>
+ <main className="w-autp overflow-x-hidden " >
+
+ </main>
     </>
   )
 }
