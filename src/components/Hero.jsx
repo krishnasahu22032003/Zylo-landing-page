@@ -29,7 +29,6 @@ const Hero = () => {
           Zylo helps you build futuristic, responsive, and AI-enhanced web experiences — effortlessly.
         </p>
 
-        {/* CTA Button */}
         <a
           href="#features"
           className="mt-8 px-6 py-3 text-base sm:text-lg font-semibold text-white rounded-xl bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 shadow-lg hover:brightness-110 hover:scale-105 transition-all duration-200"
@@ -38,14 +37,14 @@ const Hero = () => {
         </a>
       </div>
 
-      {/* Scroll Down Icon */}
+
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 animate-bounce text-white">
         <a href="#about" aria-label="Scroll Down">
           <FiChevronDown size={32} className="opacity-80 hover:opacity-100 transition" />
         </a>
       </div>
 
-      {/* Vertical Social Icons - Bottom Left */}
+
       <div className="absolute bottom-6 left-6 z-10">
         <div className="flex flex-col gap-4 p-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 shadow-md">
           <a
