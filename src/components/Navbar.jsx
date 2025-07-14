@@ -63,20 +63,21 @@ const Navbar = () => {
             </div>
 
             {/* Sign In / Sign Up Buttons */}
-            <div className="hidden md:flex gap-3 ml-4">
-              <a
-                href="#signin"
-                className="text-sm px-4 py-1 border border-gray-400 rounded-lg hover:bg-gray-100 transition"
-              >
-                Sign In
-              </a>
-              <a
-                href="#signup"
-                className="text-sm px-4 py-1 bg-black text-white rounded-lg hover:bg-neutral-800 transition"
-              >
-                Sign Up
-              </a>
-            </div>
+           <div className="hidden md:flex gap-3 ml-4">
+  <a
+    href="#signin"
+    className="px-5 py-2 text-sm font-medium rounded-xl border border-gray-300 bg-white text-gray-800 hover:bg-gray-100 hover:shadow-md transition-all duration-200"
+  >
+    Sign In
+  </a>
+  <a
+    href="#signup"
+    className="px-5 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white shadow-lg hover:brightness-110 hover:scale-[1.03] transition-all duration-200"
+  >
+    Sign Up
+  </a>
+</div>
+
           </div>
         </nav>
       </header>
