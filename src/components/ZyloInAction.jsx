@@ -49,6 +49,7 @@ const ZyloInAction = () => {
 
   return (
     <section
+    id="about"
       className="bg-white text-gray-900 py-28 px-6 relative z-[10] border-t border-gray-200"
       style={{ minHeight: "100vh" }}
     >
