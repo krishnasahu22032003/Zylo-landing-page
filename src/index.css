@@ -82,6 +82,13 @@ body {
 
 
 @layer base{
+  .no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
   .nav-hover-btn {
     position: relative;
     margin-inline-start: 2.5rem;
