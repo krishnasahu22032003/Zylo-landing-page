@@ -1,6 +1,6 @@
 const Contact = () => {
   return (
-    <section className="bg-gradient-to-br from-white to-blue-50 text-gray-900 py-32 px-6 border-t border-gray-100 relative overflow-hidden">
+    <section id="contact" className="bg-gradient-to-br from-white to-blue-50 text-gray-900 py-32 px-6 border-t border-gray-100 relative overflow-hidden">
       {/* Glowing background blobs */}
       <div className="absolute top-0 left-0 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" />
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" />
