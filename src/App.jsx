@@ -1,4 +1,5 @@
 import Contact from "./components/Contact"
+import CTA from "./components/CTA"
 import  Features  from "./components/Features"
 import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
@@ -20,6 +21,7 @@ function App() {
 <WhyZylo/>
 <Pricing/>
 <Contact/>
+<CTA/>
  </main>
     </>
   )
