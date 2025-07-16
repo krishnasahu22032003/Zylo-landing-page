@@ -1,6 +1,8 @@
 import  Features  from "./components/Features"
 import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
+import WhyZylo from "./components/WhyZylo"
+
 import ZyloInAction from "./components/ZyloInAction"
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
 <Hero/>
 <ZyloInAction/>
 <Features/>
+<WhyZylo/>
  </main>
     </>
   )

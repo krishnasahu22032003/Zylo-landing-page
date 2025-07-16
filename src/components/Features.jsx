@@ -56,6 +56,7 @@ const Features = () => {
 
   return (
     <section
+    id="features"
       ref={sectionRef}
       className="bg-[#0e0e11] text-white py-28 px-6 relative z-[10] border-t border-gray-800"
       style={{ minHeight: "100vh" }}
