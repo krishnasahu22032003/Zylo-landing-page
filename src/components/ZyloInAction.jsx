@@ -1,3 +1,4 @@
+// unchanged imports
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -36,7 +37,6 @@ const ZyloInAction = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Split heading text with distant entrance
       const splitHeading = new SplitType(headingRef.current, { types: "chars, words" });
       gsap.from(splitHeading.chars, {
         scrollTrigger: {
@@ -51,7 +51,6 @@ const ZyloInAction = () => {
         ease: "power4.out",
       });
 
-      // Animate paragraph from far right with fade-in
       gsap.fromTo(
         paragraphRef.current,
         { x: 200, opacity: 0 },
@@ -68,7 +67,6 @@ const ZyloInAction = () => {
         }
       );
 
-      // Animate cards on scroll with faster, crisp transitions
       cardRefs.current.forEach((card, i) => {
         if (!card) return;
         gsap.fromTo(
@@ -119,14 +117,18 @@ const ZyloInAction = () => {
           </p>
         </div>
 
-        {/* Grid Layout */}
-        <div className="grid grid-cols-6 grid-rows-2 gap-4">
+        {/* Responsive Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 grid-rows-2 lg:grid-rows-1 gap-4">
           {cards.map((card, index) => (
             <div
               key={index}
               ref={(el) => (cardRefs.current[index] = el)}
               className={`relative rounded-3xl overflow-hidden bg-white border border-gray-100 shadow-2xl group transition-all duration-500 
-                ${index === 1 || index === 2 ? "col-span-4" : "col-span-2"} row-span-1 hover:scale-[1.02] hover:-translate-y-1`}
+                ${
+                  index === 1 || index === 2
+                    ? "sm:col-span-2 lg:col-span-4"
+                    : "sm:col-span-1 lg:col-span-2"
+                } row-span-1 hover:scale-[1.02] hover:-translate-y-1`}
             >
               <div className="w-full h-full">
                 {card.type === "image" ? (
