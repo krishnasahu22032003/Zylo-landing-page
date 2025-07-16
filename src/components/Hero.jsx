@@ -11,7 +11,7 @@ const Hero = () => {
   const socialRef = useRef(null);
   const arrowRef = useRef(null);
   const notificationRef = useRef(null);
-
+const demoURL="https://res.cloudinary.com/dq6gs5w21/video/upload/q_auto,f_auto/v1752666135/bg_wpm6cc.mp4"
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // Split text after DOM is ready
@@ -99,9 +99,10 @@ const Hero = () => {
         muted
         loop
         playsInline
+        preload='auto'
         className="absolute inset-0 h-full w-full object-cover z-[-1]"
       >
-        <source src="/videos/bg.mp4" type="video/mp4" />
+        <source src={demoURL} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -143,7 +144,7 @@ const Hero = () => {
       </div>
 
       {/* Social Icons */}
-      <div ref={socialRef} className="absolute bottom-6 left-6 z-10">
+      <div ref={socialRef} className="md:block hidden absolute bottom-6 left-6 z-10">
         <div className="flex flex-col gap-4 p-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 shadow-md">
           <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-all">
             <FiGithub size={22} />
@@ -161,7 +162,7 @@ const Hero = () => {
       </div>
 
       {/* Notification Pill — keep full original width/layout */}
-      <div ref={notificationRef}>
+      <div  className='md:block hidden' ref={notificationRef}>
         <NotificationPill />
       </div>
     </section>
