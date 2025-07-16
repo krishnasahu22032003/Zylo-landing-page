@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiCpu, FiZap, FiCode, FiActivity, FiLayers, FiFeather } from "react-icons/fi";
 import gsap from "gsap";
 
@@ -37,6 +37,7 @@ const features = [
 
 const Features = () => {
   const sectionRef = useRef(null);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -65,27 +66,50 @@ const Features = () => {
           <h2 className="text-6xl sm:text-7xl font-bold tracking-tight text-white animate-fade-in">
             Features Built to Amaze
           </h2>
-    
+
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg leading-relaxed">
             Discover the core pillars of Zylo’s power — engineered for modern creators and teams that demand excellence.
           </p>
-    <div className="relative group mx-auto my-12 w-full max-w-6xl h-[500px] rounded-2xl overflow-hidden">
-  {/* Animated Glow Border */}
-  <div className="absolute inset-0 rounded-2xl z-10 pointer-events-none">
-    <div className="w-full h-full rounded-2xl animate-pulse bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-30 blur-md"></div>
-  </div>
 
-  {/* Ambient Glow Behind */}
-  <div className="absolute inset-0 z-0 bg-gradient-to-br from-purple-500/10 via-white/5 to-blue-500/10 blur-3xl scale-110 opacity-50 group-hover:opacity-70 transition duration-700"></div>
+          {/* 🔥 Glow Switching Image (No Parallax) */}
+          <div
+            className="relative group mx-auto my-12 w-full max-w-6xl h-[500px]"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
+            {/* Glow Bars - Top-Left & Bottom-Right (default) */}
+            <div
+              className={`absolute -top-[6px] left-0 w-2/3 h-[6px] bg-gradient-to-r from-purple-500 to-blue-500 rounded-full blur-sm opacity-80 transition-opacity duration-500 ${
+                hovered ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <div
+              className={`absolute -bottom-[6px] right-0 w-2/3 h-[6px] bg-gradient-to-l from-pink-500 to-purple-500 rounded-full blur-sm opacity-80 transition-opacity duration-500 ${
+                hovered ? "opacity-0" : "opacity-100"
+              }`}
+            />
 
-  {/* Main Image */}
-  <img
-    src="/images/banner.png"
-    alt="Features Banner"
-    className="relative z-20 w-full h-full object-cover rounded-2xl shadow-xl transition-transform duration-700 group-hover:scale-105"
-  />
-</div>
+            {/* Glow Bars - Bottom-Left & Top-Right (on hover) */}
+            <div
+              className={`absolute -bottom-[6px] left-0 w-2/3 h-[6px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-sm opacity-80 transition-opacity duration-500 ${
+                hovered ? "opacity-100" : "opacity-0"
+              }`}
+            />
+            <div
+              className={`absolute -top-[6px] right-0 w-2/3 h-[6px] bg-gradient-to-l from-blue-500 to-purple-500 rounded-full blur-sm opacity-80 transition-opacity duration-500 ${
+                hovered ? "opacity-100" : "opacity-0"
+              }`}
+            />
 
+            {/* Image */}
+            <div className="relative overflow-hidden rounded-2xl h-full z-10">
+              <img
+                src="/images/banner.jpg"
+                alt="Zylo Neural Grid"
+                className="w-full h-full object-cover rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Features Grid */}
@@ -101,9 +125,7 @@ const Features = () => {
               <h3 className="text-xl font-semibold text-white mb-3">
                 {feature.title}
               </h3>
-              <p className="text-gray-400 leading-relaxed">
-                {feature.description}
-              </p>
+              <p className="text-gray-400 leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
