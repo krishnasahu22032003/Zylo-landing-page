@@ -1,12 +1,58 @@
-# React + Vite
+# Zylo – Intelligent UI System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Zylo Screenshot](./public/images/zylo-screenshot.png)
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Zylo is a modern, intelligent, and futuristic UI platform built for next-generation web experiences. It features reactive layers, adaptive design, and smart UI logic for creators, teams, and developers looking to craft scalable, delightful digital interfaces.
 
-## Expanding the ESLint configuration
+## 🔥 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* ✨ GSAP-powered scroll animations
+* 🎨 Futuristic and elegant UI design
+* 🎥 Interactive media sections (videos, images)
+* 📦 Modular React components
+* 🌐 Responsive and performant
+
+## 🚀 Tech Stack
+
+* React.js
+* Tailwind CSS
+* GSAP (GreenSock Animation Platform)
+* React Icons
+
+## 📁 Folder Structure
+
+```
+zylo/
+├── public/
+│   └── images/
+│       └── screenshot.png
+├── src/
+│   ├── components/
+│   ├── assets/
+│   ├── pages/
+│   ├── App.jsx
+│   └── main.jsx
+├── package.json
+└── tailwind.config.js
+```
+
+
+## 🛠️ Getting Started
+
+```bash
+git clone https://github.com/yourusername/zylo.git
+cd zylo
+npm install
+npm run dev
+```
+
+## 📬 Contact
+
+**Name:** Krishna
+**Email:** [krishna.sahu.work@gamil.com]
+
+## 📄 License
+
+MIT © Krishna
