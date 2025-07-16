@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { FiCpu, FiZap, FiCode, FiActivity, FiLayers, FiFeather } from "react-icons/fi";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
@@ -41,30 +43,90 @@ const Features = () => {
 
   useEffect(() => {
     if (!sectionRef.current) return;
-    gsap.fromTo(
-      sectionRef.current.querySelectorAll(".feature-card"),
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.2,
-        duration: 1.1,
-        ease: "power4.out",
-      }
-    );
+
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray(".feature-card").forEach((card, i) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 80 },
+          {
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              toggleActions: "play none none reverse",
+            },
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            delay: i * 0.1,
+            ease: "power4.out",
+          }
+        );
+      });
+
+      gsap.fromTo(
+        "#features h2",
+        { opacity: 0, y: 150 },
+        {
+          scrollTrigger: {
+            trigger: "#features h2",
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          },
+          opacity: 1,
+          y: 0,
+          duration: 1.4,
+          ease: "power4.out",
+        }
+      );
+
+      gsap.fromTo(
+        "#features p",
+        { opacity: 0, y: 100 },
+        {
+          scrollTrigger: {
+            trigger: "#features p",
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          },
+          opacity: 1,
+          y: 0,
+          duration: 1.1,
+          delay: 0.2,
+          ease: "power2.out",
+        }
+      );
+
+      gsap.fromTo(
+        "#features img",
+        { opacity: 0, y: 120, scale: 0.9 },
+        {
+          scrollTrigger: {
+            trigger: "#features img",
+            start: "top 95%",
+            toggleActions: "play none none reverse",
+          },
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.3,
+          ease: "power3.out",
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
     <section
-    id="features"
+      id="features"
       ref={sectionRef}
       className="bg-[#0e0e11] text-white py-28 px-6 relative z-[10] border-t border-gray-800"
-      style={{ minHeight: "100vh" }}
     >
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="mb-16 text-center">
-          <h2 className="text-6xl sm:text-7xl font-bold tracking-tight text-white animate-fade-in">
+          <h2 className="text-6xl sm:text-7xl font-bold tracking-tight text-white">
             Features Built to Amaze
           </h2>
 
@@ -72,37 +134,16 @@ const Features = () => {
             Discover the core pillars of Zylo’s power — engineered for modern creators and teams that demand excellence.
           </p>
 
-          {/* 🔥 Glow Switching Image (No Parallax) */}
           <div
             className="relative group mx-auto my-12 w-full max-w-6xl h-[500px]"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
           >
-            {/* Glow Bars - Top-Left & Bottom-Right (default) */}
-            <div
-              className={`absolute -top-[6px] left-0 w-2/3 h-[6px] bg-gradient-to-r from-purple-500 to-blue-500 rounded-full blur-sm opacity-80 transition-opacity duration-500 ${
-                hovered ? "opacity-0" : "opacity-100"
-              }`}
-            />
-            <div
-              className={`absolute -bottom-[6px] right-0 w-2/3 h-[6px] bg-gradient-to-l from-pink-500 to-purple-500 rounded-full blur-sm opacity-80 transition-opacity duration-500 ${
-                hovered ? "opacity-0" : "opacity-100"
-              }`}
-            />
+            <div className={`absolute -top-[6px] left-0 w-2/3 h-[6px] bg-gradient-to-r from-purple-500 to-blue-500 rounded-full blur-sm opacity-80 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`} />
+            <div className={`absolute -bottom-[6px] right-0 w-2/3 h-[6px] bg-gradient-to-l from-pink-500 to-purple-500 rounded-full blur-sm opacity-80 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`} />
+            <div className={`absolute -bottom-[6px] left-0 w-2/3 h-[6px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-sm opacity-80 transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`} />
+            <div className={`absolute -top-[6px] right-0 w-2/3 h-[6px] bg-gradient-to-l from-blue-500 to-purple-500 rounded-full blur-sm opacity-80 transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`} />
 
-            {/* Glow Bars - Bottom-Left & Top-Right (on hover) */}
-            <div
-              className={`absolute -bottom-[6px] left-0 w-2/3 h-[6px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-sm opacity-80 transition-opacity duration-500 ${
-                hovered ? "opacity-100" : "opacity-0"
-              }`}
-            />
-            <div
-              className={`absolute -top-[6px] right-0 w-2/3 h-[6px] bg-gradient-to-l from-blue-500 to-purple-500 rounded-full blur-sm opacity-80 transition-opacity duration-500 ${
-                hovered ? "opacity-100" : "opacity-0"
-              }`}
-            />
-
-            {/* Image */}
             <div className="relative overflow-hidden rounded-2xl h-full z-10">
               <img
                 src="/images/banner.jpg"
@@ -113,7 +154,6 @@ const Features = () => {
           </div>
         </div>
 
-        {/* Features Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {features.map((feature, index) => (
             <div
